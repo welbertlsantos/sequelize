@@ -25,7 +25,12 @@ app.post('/users', async(req, res) => {
     res.json(user);
 });
 
-app.get('/users:id', (req, res) => {});
+app.get('/users:id', async(req, res) => {
+    const user = await User.findOne(req.params);
+    res.json(user);
+});
+
+
 app.put('/users:id', (req, res) => {});
 app.delete('/users:id', (req, res) => {}); 
 
